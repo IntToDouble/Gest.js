@@ -1,4 +1,4 @@
-Gest.js
+gestRec.js
 =======
 
-Javascript Mobile Device Gesture Detection Framework
+Javascript Gyroscopic Gesture Recognition Library
