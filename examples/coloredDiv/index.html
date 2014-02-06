@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gestRec.js Alert Example</title>
+	<style>
+		#gesture {
+			width: 100%;
+			height: 300px;
+			font-size: 90px;
+			line-height: 300px;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="../../gestRec.js"></script>
+	<script type="text/javascript">
+
+		window.onload = function() {
+			gestRec.init();
+		}
+
+		function displayGesture(name, color) {
+			var gesture = document.getElementById("gesture");
+			gesture.innerHTML = name;
+			gesture.style.backgroundColor = color;
+		};
+
+		gestRec.set("flick", function() {displayGesture("flick", "blue")});
+		gestRec.set("flip", function() {displayGesture("flip", "red")});
+		gestRec.set("twist", function() {displayGesture("twist", "orange")});
+		//gestRec.init();
+	</script>
+</head>
+<body>
+	<h1>gestRec.js Alert Example</h1>
+	<div id="gesture">
+		
+	</div>
+</body>
+</html>
