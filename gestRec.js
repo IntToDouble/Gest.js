@@ -42,13 +42,13 @@ var gestRec = {
 		if(window.ondevicemotion)
 			this.callback = window.ondevicemotion;
 
-		window.ondevicemotion = this.processMotion.bind(this);
+		window.ondevicemotion = this._processMotion.bind(this);
 	},
 
 
 	//Do the number crunching required to determine if a given motion was detected and then
 	//fire that function accordingly
-	processMotion: function(e) {
+	_processMotion: function(e) {
 
 		//Event is inside our eventTimeout, and is skipped accordingly
 		if(e.timeStamp < this.lastTrigger + this.eventTimeout) 
