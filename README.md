@@ -23,4 +23,6 @@ Last but not least, to begin the gesture recognition, gestRec.init must be calle
 
 ## Demo
 
-http://IntToDouble.github.io/gestRec.js/examples/alert/
+http://IntToDouble.github.io/gestRec.js/examples/alert/coloredDiv/
+
+
