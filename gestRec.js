@@ -35,11 +35,15 @@ var gestRec = {
 		{name: "gamma", callback: "flick"}
 	],
 
+	//Stores the callback that was attached to window.ondevicemotion before gestRec initalization
 	callback: null,
 
 	//Initialize gestRec.js on the window, saving the old callback so that the event can be passed on
 	init: function() {
-		if(window.ondevicemotion)
+		if(window.ondevicemotion && window.ondevicemotion.toString().indexOf("[native code]") != -1) 
+			return console.error("Attempting to initialize gestRec.js multiple times");
+
+		if(window.ondevicemotion) 
 			this.callback = window.ondevicemotion;
 
 		window.ondevicemotion = this._processMotion.bind(this);
@@ -83,7 +87,7 @@ var gestRec = {
 
 		}, this); //Necessary to ensure we call callbacks on gestRec.js object and not window
 
-		return this.callback != null ? this.callback() : null;
+		return this.callback != null ? this.callback(e) : null;
 	},
 
 	set: function(gesture, callback) {
